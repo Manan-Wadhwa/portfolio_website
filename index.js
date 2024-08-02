@@ -58,8 +58,14 @@ floorCollisions2d.forEach((row,y) => {
 
 
 // player implementation
-const player = new Player({x: 0, y: 0})
-
+const player = new Player({
+    position:{
+        x: 0,
+        y: 0    
+    },
+    collisoionBlocks
+}
+)
 const keys = {
     d:{pressed: false},
     a:{pressed:false },
@@ -92,8 +98,6 @@ function animate(){
         CollisoionBlock.update()
     })
     c.restore()
-
-    
 
     player.update()
 
