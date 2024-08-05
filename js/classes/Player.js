@@ -31,7 +31,7 @@ class Player {
 
             if(collision({
                 object1 : this,
-                object2 : collisionBlock,}))
+                object2 : collisionBlocks,}))
         {
             if(this.velocity.y>0){
                 this.velocity.y = 0

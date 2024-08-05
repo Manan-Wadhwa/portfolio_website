@@ -21,13 +21,14 @@ for (let i=0; i<floorCollisions.length; i+=36){
     floorCollisions2d.push(floorCollisions.slice(i,i+36))
 }
 
-
 const collisoionBlocks = []
+
+const platformBlocks  = []
 tileCollisions2d.forEach((row,y) => {
     row.forEach((symbol,x) => {
       if(symbol === 202){
         console.log('draw a block here')
-        collisoionBlocks.push(new CollisoionBlock({
+        platformBlocks.push(new CollisoionBlock({
             position: {
                 x:x*16, 
                 y: y*16}
@@ -97,13 +98,17 @@ function animate(){
     collisoionBlocks.forEach((CollisoionBlock)=>{
         CollisoionBlock.update()
     })
-    c.restore()
-
+    platformBlocks.forEach((CollisoionBlock)=>{
+        CollisoionBlock.update()
+    })
     player.update()
 
     player.velocity.x =  0
     if (keys.d.pressed) player.velocity.x=5
     else if (keys.a.pressed) player.velocity.x = -5
+
+    c.restore()
+
 
 
 }
